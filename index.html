@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>¡Felicidades Ines! 🎉</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #FAF3EC;
+      --champagne:  #F5E6D3;
+      --blush:      #F2C4C4;
+      --dusty-rose: #C9969A;
+      --rose-dark:  #9E6B6F;
+      --gold:       #C9A96E;
+      --gold-light: #EAD9B0;
+      --text:       #5C3D3D;
+    }
+
+    /* ─── Body & background ─────────────────────────────────────── */
+    body {
+      font-family: 'Raleway', sans-serif;
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse at 20% 10%,  #FDE8E8 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 90%,  #F5DCC8 0%, transparent 55%),
+        radial-gradient(ellipse at 60% 40%,  #FAF3EC 0%, transparent 70%),
+        #FAF0EA;
+      color: var(--text);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* ─── Floating particles ─────────────────────────────────────── */
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .p {
+      position: absolute;
+      bottom: -60px;
+      opacity: 0;
+      animation: floatUp linear infinite;
+      user-select: none;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0)      rotate(0deg)   scale(1);    opacity: 0;   }
+      5%   {                                                            opacity: 0.9; }
+      90%  {                                                            opacity: 0.4; }
+      100% { transform: translateY(-110vh) rotate(400deg) scale(0.6);  opacity: 0;   }
+    }
+
+    /* ─── Container ─────────────────────────────────────────────── */
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3.5rem 1.8rem 4.5rem;
+      text-align: center;
+    }
+
+    /* ─── Header ─────────────────────────────────────────────────── */
+    .badge {
+      display: inline-block;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
+      border: 1px solid var(--gold-light);
+      border-radius: 50px;
+      padding: 0.35rem 1.1rem;
+      margin-bottom: 1.4rem;
+      background: rgba(255,255,255,0.5);
+      backdrop-filter: blur(4px);
+    }
+
+    .main-title {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 10vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #B8842A 0%, #D4A55A 35%, #C9A96E 55%, #9E6B6F 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 2px 6px rgba(180,120,80,0.18));
+      margin-bottom: 0.6rem;
+    }
+
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.9rem;
+      margin: 1rem 0 0.8rem;
+    }
+
+    .ornament-line {
+      flex: 1;
+      max-width: 110px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-light));
+    }
+    .ornament-line.r { background: linear-gradient(270deg, transparent, var(--gold-light)); }
+
+    .ornament-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .ornament-diamond { font-size: 0.65rem; color: var(--gold); }
+
+    .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.15rem, 4vw, 1.65rem);
+      color: var(--dusty-rose);
+      letter-spacing: 1.5px;
+    }
+
+    /* ─── GIF ────────────────────────────────────────────────────── */
+    .gif-section { margin: 2.8rem 0 0.5rem; }
+
+    .gif-outer {
+      display: inline-block;
+      position: relative;
+      padding: 5px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--gold), var(--blush) 50%, var(--gold));
+      box-shadow:
+        0 8px 32px rgba(201,169,110,0.28),
+        0 2px 8px rgba(158,107,111,0.15);
+    }
+
+    .gif-outer::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 25px;
+      background: linear-gradient(135deg, var(--gold-light), var(--blush), var(--gold-light));
+      z-index: -1;
+      opacity: 0.5;
+      filter: blur(6px);
+    }
+
+    .gif-inner {
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--champagne);
+      line-height: 0;
+    }
+
+    .gif-inner img {
+      display: block;
+      width: min(360px, 90vw);
+      height: auto;
+      border-radius: 20px;
+    }
+
+    /* ─── Gift section ──────────────────────────────────────────── */
+    .gift-section { margin: 3.5rem 0 0; }
+
+    .gift-intro {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 4.5vw, 2rem);
+      color: var(--text);
+      margin-bottom: 1.6rem;
+    }
+
+    /* ─── Flip card ─────────────────────────────────────────────── */
+    .gift-scene {
+      perspective: 1200px;
+      cursor: pointer;
+      user-select: none;
+      min-height: 340px;
+    }
+
+    .card-flipper {
+      position: relative;
+      width: 100%;
+      min-height: 340px;
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.4, 0.2, 0.2, 1);
+    }
+
+    .card-flipper.flipped { transform: rotateY(180deg); }
+
+    .card-face {
+      position: absolute;
+      inset: 0;
+      border-radius: 24px;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* — Front — */
+    .card-front {
+      background: linear-gradient(145deg, #FDE8E8 0%, var(--champagne) 50%, #FDE8E8 100%);
+      border: 1.5px solid var(--gold-light);
+      box-shadow: 0 6px 30px rgba(201,169,110,0.2), 0 1px 3px rgba(158,107,111,0.08);
+      gap: 1rem;
+      padding: 2.5rem 2rem;
+    }
+
+    .front-emoji {
+      font-size: 4.5rem;
+      animation: pulse-gift 2.4s ease-in-out infinite;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.1));
+      line-height: 1;
+    }
+
+    @keyframes pulse-gift {
+      0%, 100% { transform: scale(1)    rotate(-5deg); }
+      50%       { transform: scale(1.12) rotate(5deg);  }
+    }
+
+    .front-question {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.2rem, 4vw, 1.7rem);
+      color: var(--text);
+    }
+
+    .front-hint {
+      font-size: 0.72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
+      animation: blink-hint 2.5s ease-in-out infinite;
+    }
+
+    @keyframes blink-hint {
+      0%, 100% { opacity: 1;   }
+      50%       { opacity: 0.35; }
+    }
+
+    /* — Back — */
+    .card-back {
+      background: linear-gradient(160deg, #FFFFFF 0%, #FDF6F0 60%, #FFF8F3 100%);
+      border: 1.5px solid var(--gold-light);
+      box-shadow: 0 6px 30px rgba(201,169,110,0.18), 0 1px 3px rgba(158,107,111,0.08);
+      transform: rotateY(180deg);
+      gap: 0;
+      padding: 2.8rem 2rem 2.2rem;
+      overflow: hidden;
+    }
+
+    .card-back::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, var(--gold-light) 30%, var(--gold) 50%, var(--gold-light) 70%, transparent 100%);
+    }
+
+    .card-back::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 2px;
+      height: 36px;
+      background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+    }
+
+    .back-corner {
+      position: absolute;
+      font-size: 1.1rem;
+      color: var(--gold-light);
+    }
+
+    .bow {
+      font-size: 3.2rem;
+      display: block;
+      margin-bottom: 0.8rem;
+      animation: bow-sway 3.5s ease-in-out infinite;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+    }
+
+    @keyframes bow-sway {
+      0%, 100% { transform: rotate(-6deg) scale(1); }
+      50%       { transform: rotate(6deg)  scale(1.06); }
+    }
+
+    .gift-text {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(1.4rem, 5vw, 2.1rem);
+      line-height: 1.25;
+      color: var(--text);
+    }
+
+    .gift-meta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      margin: 1rem 0 1.6rem;
+    }
+
+    .gift-meta-line {
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: var(--gold-light);
+    }
+
+    .gift-tagline {
+      font-size: 0.75rem;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      color: var(--dusty-rose);
+      font-style: italic;
+    }
+
+    /* ─── Button ─────────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #fff;
+      padding: 0.85rem 2.4rem;
+      border-radius: 50px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      background: linear-gradient(135deg, var(--dusty-rose) 0%, var(--rose-dark) 40%, var(--gold) 100%);
+      box-shadow:
+        0 5px 22px rgba(201,169,110,0.38),
+        0 2px 8px rgba(158,107,111,0.22);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, transparent 60%);
+      border-radius: inherit;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: -50%; left: -60%;
+      width: 40%; height: 200%;
+      background: rgba(255,255,255,0.18);
+      transform: skewX(-20deg);
+      animation: shine 4s ease-in-out infinite;
+    }
+
+    @keyframes shine {
+      0%, 100% { left: -60%; }
+      50%       { left: 120%; }
+    }
+
+    .btn:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow:
+        0 10px 36px rgba(201,169,110,0.5),
+        0 4px 12px rgba(158,107,111,0.3);
+    }
+
+    .btn:active { transform: translateY(-1px) scale(1.01); }
+
+    .btn-arrow { font-size: 1rem; transition: transform 0.25s; }
+    .btn:hover .btn-arrow { transform: translateX(4px); }
+
+    /* ─── Footer ─────────────────────────────────────────────────── */
+    .footer {
+      margin-top: 3.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      color: var(--dusty-rose);
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="particles"></div>
+
+  <div class="wrap">
+
+    <!-- Header -->
+    <div class="badge">✦  ✦</div>
+
+    <h1 class="main-title">¡FELICIDADES<br>INES!</h1>
+
+    <div class="ornament">
+      <div class="ornament-line"></div>
+      <div class="ornament-dot"></div>
+      <span class="ornament-diamond">◆</span>
+      <div class="ornament-dot"></div>
+      <div class="ornament-line r"></div>
+    </div>
+
+    <p class="subtitle">¡Y A LAS DPANN!&nbsp;&nbsp;🎉</p>
+
+    <!-- GIF -->
+    <div class="gif-section">
+      <div class="gif-outer">
+        <div class="gif-inner">
+          <img
+            src="https://media.giphy.com/media/AGvA6VxtmrZycbhJV5/giphy.gif"
+            alt="Taylor Swift celebrando"
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- Gift flip card -->
+    <div class="gift-section">
+      <p class="gift-intro">Tu regalo es…</p>
+
+      <div class="gift-scene" id="scene">
+        <div class="card-flipper" id="flipper">
+
+          <!-- FRONT -->
+          <div class="card-face card-front">
+            <span class="front-emoji">🎁</span>
+            <p class="front-question"> Haz click para descubrir la sorpresa :)</p>
+            <p class="front-hint">✦ espero que te guste ✦</p>
+          </div>
+
+          <!-- BACK -->
+          <div class="card-face card-back">
+            <span class="back-corner" style="top:14px;left:18px">✦</span>
+            <span class="back-corner" style="top:14px;right:18px">✦</span>
+            <span class="back-corner" style="bottom:14px;left:18px">✦</span>
+            <span class="back-corner" style="bottom:14px;right:18px">✦</span>
+
+            <span class="bow">🎀</span>
+            <p class="gift-text">UN DÍA DE CERAMICA<br>JUNTAS&nbsp;🏺</p>
+
+            <div class="gift-meta">
+              <div class="gift-meta-line"></div>
+              <div class="gift-meta-line"></div>
+            </div>
+
+            <a
+              class="btn"
+              href="https://ceramicafe-genevieve.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Visitar el sitio
+              <span class="btn-arrow">→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <p class="footer">con mucho amor 🌸</p>
+
+  </div>
+
+  <script>
+    // Flip card — click anywhere on the card except the button
+    document.getElementById('scene').addEventListener('click', function(e) {
+      if (e.target.closest('.btn')) return;
+      document.getElementById('flipper').classList.toggle('flipped');
+    });
+
+    // Floating particles
+    const container = document.getElementById('particles');
+    const glyphs  = ['♡', '✦', '✿', '◇', '♡', '♡', '✦', '🌸'];
+    const colors  = [
+      'var(--dusty-rose)', 'var(--gold)', 'var(--blush)',
+      'var(--gold-light)', '#D4A0A0', '#E8C9A0'
+    ];
+
+    function spawn() {
+      const el = document.createElement('span');
+      el.className = 'p';
+      el.textContent = glyphs[Math.floor(Math.random() * glyphs.length)];
+      el.style.cssText = `
+        left: ${Math.random() * 100}vw;
+        font-size: ${0.7 + Math.random() * 1.4}rem;
+        color: ${colors[Math.floor(Math.random() * colors.length)]};
+        animation-duration: ${7 + Math.random() * 9}s;
+        animation-delay: ${Math.random() * 2}s;
+      `;
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 18000);
+    }
+
+    for (let i = 0; i < 18; i++) setTimeout(spawn, i * 150);
+    setInterval(spawn, 900);
+  </script>
+
+</body>
+</html>
